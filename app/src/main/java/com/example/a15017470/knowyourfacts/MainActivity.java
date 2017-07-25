@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         al.add(new Frag1());
         al.add(new Frag2());
         al.add(new Frag3());
+        al.add(new Frag4());
 
         adapter = new MyFragmentPagerAdapter(fm, al);
 
@@ -89,15 +90,18 @@ public class MainActivity extends AppCompatActivity {
 
         if (item.getItemId() == R.id.action_random) {
             Random rnd = new Random();
-            randomFragmentNum = rnd.nextInt(150);
+            randomFragmentNum = rnd.nextInt(200);
             if (randomFragmentNum < 50) {
                 randomFragmentNum = 0;
                 vPager.setCurrentItem(randomFragmentNum, true);
             } else if (randomFragmentNum < 100) {
                 randomFragmentNum = 1;
                 vPager.setCurrentItem(randomFragmentNum, true);
-            } else {
+            } else  if (randomFragmentNum < 150){
                 randomFragmentNum = 2;
+                vPager.setCurrentItem(randomFragmentNum, true);
+            } else {
+                randomFragmentNum = 3;
                 vPager.setCurrentItem(randomFragmentNum, true);
             }
         }
